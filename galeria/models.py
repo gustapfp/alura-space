@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 # Create your models here.
-class Fotografias(models.Model): #nome legenda descrição foto categoria data de criação
+class Fotografias(models.Model): 
     OPCOES_CATEGORIAS = (
         ("NEBULOSA", "Nebulosa"),
         ("ESTRELA", "Estrela"),

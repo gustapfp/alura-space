@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from galeria.models import Fotografias
 # Create your views here.
 def index(request): 
-    return render(request, 'galeria/index.html')
+    fotografias = Fotografias.objects.all()
+    return render(request, 'galeria/index.html', {"card":fotografias})
 
-def imagem(request): 
-    return render(request, 'galeria/imagem.html')
+def imagem(request, foto_id): 
+    fotografias = get_object_or_404(Fotografias, pk=foto_id)
+    return render(request, 'galeria/imagem.html', {"fotografias": fotografias})

@@ -3,6 +3,6 @@ from django.urls import path
 
 urlpatterns = [
     path('', index, name='index'),
-    path('imagem/', imagem, name='imagem')
+    path('imagem/<int:foto_id>', imagem, name='imagem')
     
 ]
