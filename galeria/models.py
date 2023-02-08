@@ -15,6 +15,7 @@ class Fotografias(models.Model):
     categoria = models.CharField(max_length=12, choices=OPCOES_CATEGORIAS, default="")
     data_fotografia = models.DateTimeField(default=datetime.now, blank=False)
     imagem = models.ImageField(upload_to="fotos/%Y/%m/%d", blank=True)
+    publicada = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return  self.nome
