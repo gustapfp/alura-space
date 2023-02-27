@@ -29,9 +29,15 @@ class RegisterForms(forms.Form):
         label= "Nome do usuario",
         required = True,
         max_length = 100,
+        widget=forms.TextInput(
+            attrs= {
+                'class' : 'form-control',
+                'placeholder': 'Ex: João Silva'
+            }
+        )
     )
     email=forms.EmailField(
-        label='Nome de Cadastro',
+        label='Email',
         required=True,
         max_length=100,
         widget=forms.EmailInput(
@@ -53,7 +59,7 @@ class RegisterForms(forms.Form):
         ),
     )
     user_password_2 = forms.CharField(
-        label="Senha",
+        label="Repita sua senha",
         required=True,
         max_length=100,
         widget=forms.PasswordInput(
