@@ -53,6 +53,7 @@ def register(request):
                 password = user_password
             )
             registered_used.save()
+            messages.success(request, 'Cadastro efutado com sucesso.')
             return redirect('login')
            
     return render(request, 'user/register.html', {"form": form})

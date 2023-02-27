@@ -69,3 +69,13 @@ class RegisterForms(forms.Form):
             }
         ),
     )
+
+    def clean_register_name(self):
+        name = self.cleaned_data.get("name_login")    
+       
+        if name:
+            name = name.strip()
+            if " " in name:
+                raise forms.ValidationError('Espaços não são permitidos nesse campo')
+            else:
+                return name
